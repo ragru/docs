@@ -1,19 +1,21 @@
-# Clipkitガイド
+# Clipkitガイド : 公式ドキュメント
 
 ## 公開サイトへのデプロイ
 
 `gh-pages` ブランチ内のファイルを更新すると、自動的にビルドされ、以下のURLにデプロイされます。
+
 [https://ragru.github.io/docs/](https://ragru.github.io/docs/)
 
-## ローカル環境
+## Dockerによるローカル環境
 
-### 準備
+準備
 
 ```
 % git clone git@github.com:ragru/docs.git
+% cd docs
 ```
 
-### 起動
+起動
 
 ```
 % docker-compose up
