@@ -4,7 +4,7 @@
 
 `gh-pages` ブランチ内のファイルを更新すると、自動的にビルドされ、以下のURLにデプロイされます。
 
-[https://ragru.github.io/docs/](https://ragru.github.io/docs/)
+[https://clipkit.co/docs/](https://clipkit.co/docs/)
 
 ## Dockerによるローカル環境
 
