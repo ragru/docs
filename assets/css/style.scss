@@ -1,8 +1,65 @@
 ---
 ---
-
 @import "{{ site.theme }}";
 
 .page-header {
-    padding: 1rem;
+  padding: 1rem;
+  background-image: none;
+  background-color: #106eb8;
+
+  h1 {
+    font-size: 2rem;
+    margin: 0;
+
+    img {
+      height: 4rem;
+    }
+  }
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.breadcrumb {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.breadcrumb li {
+  display: inline-block;
+  /*横に並ぶように*/
+  list-style: none;
+  font-weight: bold;
+  /*太字*/
+}
+
+.breadcrumb li:after {
+  /* ▶を表示*/
+  font-family: FontAwesome;
+  content: '\f0da';
+  padding: 0 4px;
+  color: #72a1f7;
+}
+
+.breadcrumb li:last-child:after {
+  content: '';
+}
+
+.breadcrumb li a {
+  text-decoration: none;
+  color: #72a1f7;
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 15px;
+  background: #c6e2ff;
+  font-size: 0.9em;
+}
+
+.breadcrumb li a:hover {
+  background: #c9dbfb;
+}
+
+.site-footer {
+  text-align: center;
 }

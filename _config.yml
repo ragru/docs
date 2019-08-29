@@ -1,5 +1,7 @@
 theme: jekyll-theme-cayman
 baseurl: /docs
+title: Clipkitガイド
+lang: ja_JP
 
 breadcrumbs:
   root:

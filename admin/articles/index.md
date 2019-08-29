@@ -1,8 +1,3 @@
----
-title: 記事
-parent: /admin/
----
+# 記事の管理
 
-# Articles
-
-{{ page.title }}
+XXXXX
