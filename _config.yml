@@ -2,8 +2,12 @@ theme: jekyll-theme-cayman
 baseurl: /docs
 title: Clipkitガイド
 lang: ja_JP
+url: https://clipkit.co/docs
 
 breadcrumbs:
   root:
     hide: false
     image: false
+
+plugins:
+  - jekyll-sitemap
