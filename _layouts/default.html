@@ -23,7 +23,9 @@
       {% if page.url != '/' %}
         {% include breadcrumbs.html %}
       {% endif %}
-      {{ content }}
+      <div class="content">
+        {{ content }}
+      </div>
     </section>
 
     <footer class="site-footer">

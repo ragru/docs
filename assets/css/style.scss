@@ -24,40 +24,48 @@
 .breadcrumb {
   margin-left: 0;
   padding-left: 0;
+
+  li {
+    display: inline-block;
+    list-style: none;
+
+    &:after {
+      font-family: FontAwesome;
+      content: '\f0da';
+      padding: 0 4px;
+      color: #72a1f7;
+    }
+
+    &:last-child:after {
+      content: '';
+    }
+
+    a {
+      text-decoration: none;
+      color: #72a1f7;
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 15px;
+      background: #c6e2ff;
+      font-size: 0.9em;
+
+      &:hover {
+        background: #c9dbfb;
+      }
+    }
+
+  }
+
 }
 
-.breadcrumb li {
-  display: inline-block;
-  /*横に並ぶように*/
-  list-style: none;
-  font-weight: bold;
-  /*太字*/
-}
-
-.breadcrumb li:after {
-  /* ▶を表示*/
-  font-family: FontAwesome;
-  content: '\f0da';
-  padding: 0 4px;
-  color: #72a1f7;
-}
-
-.breadcrumb li:last-child:after {
-  content: '';
-}
-
-.breadcrumb li a {
-  text-decoration: none;
-  color: #72a1f7;
-  display: inline-block;
-  padding: 3px 10px;
-  border-radius: 15px;
-  background: #c6e2ff;
-  font-size: 0.9em;
-}
-
-.breadcrumb li a:hover {
-  background: #c9dbfb;
+.main-content {
+  .content {
+    img {
+      border-radius: .5rem;
+      padding: 1rem;
+      border: 1px solid #eee;
+    }
+  }
 }
 
 .site-footer {
