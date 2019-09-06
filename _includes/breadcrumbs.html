@@ -1,8 +1,8 @@
 <ul class="breadcrumb">
   {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
   <li itemscope itemtype="//data-vocabulary.org/Breadcrumb"><a href="{{ '/' | relative_url }}"><span itemprop="title">Top</span></a></li>
-  {% for crumb in crumbs offset: 1 %}
-    {% capture crumb_url %}{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}{% endcapture %}
+  {% for crumb in crumbs offset: 2 %}
+    {% capture crumb_url %}{% assign crumb_limit = forloop.index | plus: 2 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}{% endcapture %}
     {% capture crumb_title %}{% for p in site.pages %}{% if crumb_url == p.url %}{{ p.title }}{% endif %}{% endfor %}{% endcapture %}
     {% if forloop.last %}
       <li><!--{{ crumb_title }}--></li>
