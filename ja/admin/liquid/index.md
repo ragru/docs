@@ -10,36 +10,36 @@
 
 出力
 
-```
+~~~
 {{ 2重の中括弧で括られます }}
-```
+~~~
 
 タグ
 
-```
+~~~
 {% 中括弧とパーセント記号で括られます %}
-```
+~~~
 
 ## 出力
 
 出力の簡単な例を示します。
 
-```
+~~~
 Hello {{name}}
 Hello {{user.name}}
 Hello {{ 'tobi' }}
-```
+~~~
 
 ### 出力の拡張「フィルタ」
 
 出力マークアップにはフィルタを適用することができます。フィルタはシンプルなメソッドです。最初のパラメータはフィルタの左側の出力です。そのフィルタの結果がさらに次のフィルタに引き渡されます。すべてのフィルタを通ると、その結果が返されます。
 
-```
+~~~
 Hello {{ 'tobi' | upcase }}
 Hello tobi has {{ 'tobi' | size }} letters!
 Hello {{ '*tobi*' | textilize | upcase }}
 Hello {{ 'now' | date: "%Y %h" }}
-```
+~~~
 
 #### 標準フィルタ
 
@@ -97,78 +97,78 @@ Hello {{ 'now' | date: "%Y %h" }}
 
 `comment` はシンプルなタグです。コンテンツを飲み込んで無効化するだけです。
 
-```
+~~~
 我々は今年、1億円 {% comment %} の損失 {% endcomment %} を生み出した。
-```
+~~~
 
 ### raw
 
 `raw` はタグ処理を一時的に無効にします。構文が衝突するコンテキストの生成（例 Mustache, Handlebars）で役立ちます。
 
-```
+~~~
 {&#37; raw &#37;}
     Handlebarsで、 {{ this }} はHTMLエスケープされます、しかし {{{ that }}} ではされない。
 {&#37; endraw &#37;}
-```
+~~~
 
 ### if / else
 
 `if` / `else` は、あらゆるプログラミング言語でおなじみの構文です。ifまたはunlessに簡単な式を書くことができます。（オプションで`elsif`と`else`も）
 
-```
+~~~
 {% if user %}
     Hello {{ user.name }}
 {% endif %}
-```
+~~~
 
-```
+~~~
 # これも同じ
 {% if user != null %}
     Hello {{ user.name }}
 {% endif %}
-```
+~~~
 
-```
+~~~
 {% if user.name == 'tobi' %}
     Hello tobi
 {% elsif user.name == 'bob' %}
     Hello bob
 {% endif %}
-```
+~~~
 
-```
+~~~
 {% if user.name == 'tobi' or user.name == 'bob' %}
     Hello tobi or bob
 {% endif %}
-```
+~~~
 
-```
+~~~
 {% if user.name == 'bob' and user.age > 45 %}
     Hello old bob
 {% endif %}
-```
+~~~
 
-```
+~~~
 {% if user.name != 'tobi' %}
     Hello non-tobi
 {% endif %}
-```
+~~~
 
-```
+~~~
 # これも同じ
 {% unless user.name == 'tobi' %}
     Hello non-tobi
 {% endunless %}
-```
+~~~
 
-```
+~~~
 # 配列のサイズをチェック
 {% if user.payments == empty %}
     you never paid !
 {% endif %}
-```
+~~~
 
-```
+~~~
 {% if user.payments.size > 0  %}
     you paid !
 {% endif %}
@@ -177,35 +177,35 @@ Hello {{ 'now' | date: "%Y %h" }}
 {% else %}
     Sorry, you are too young
 {% endif %}
-```
+~~~
 
-```
+~~~
 {% if user.age > 18 %}
     Login here
 {% else %}
     Sorry, you are too young
 {% endif %}
-```
+~~~
 
-```
+~~~
 # array = 1,2,3
 {% if array contains 2 %}
     array includes 2
 {% endif %}
-```
+~~~
 
-```
+~~~
 # string = 'hello world'
 {% if string contains 'hello' %}
     string includes 'hello'
 {% endif %}
-```
+~~~
 
 ### case文
 
 さらに多くの条件分岐が必要なら、`case` 文を使うことができます。
 
-```
+~~~
 {% case condition %}
 {% when 1 %}
     hit 1
@@ -214,11 +214,11 @@ Hello {{ 'now' | date: "%Y %h" }}
 {% else %}
     ... else ...
 {% endcase %}
-```
+~~~
 
 例:
 
-```
+~~~
 {% case template %}
 {% when 'label' %}
     // {{ label.title }}
@@ -227,69 +227,69 @@ Hello {{ 'now' | date: "%Y %h" }}
 {% else %}
     // {{ page_title }}
 {% endcase %}
-```
+~~~
 
 ### cycle
 
 しばしば、異なる色や似たタスクを交互に切り替えたい場合があります。そのために `cycle` タグを用意しています。
 
-```
+~~~
 {% cycle 'one', 'two', 'three' %}
 {% cycle 'one', 'two', 'three' %}
 {% cycle 'one', 'two', 'three' %}
 {% cycle 'one', 'two', 'three' %}
-```
+~~~
 
 結果）
 
-```
+~~~
 one
 two
 three
 one
-```
+~~~
 
 サイクルグループに名前を指定しない場合は、同じパラメータを持つ複数の呼び出しが1つのグループであるとみなされます。
 
 サイクルグループを操作したい場合は、グループに名前を指定することができます。これは変数でも良いです。
 
-```
+~~~
 {% cycle 'group 1': 'one', 'two', 'three' %}
 {% cycle 'group 1': 'one', 'two', 'three' %}
 {% cycle 'group 2': 'one', 'two', 'three' %}
 {% cycle 'group 2': 'one', 'two', 'three' %}
-```
+~~~
 
 結果）
 
-```
+~~~
 one
 two
 one
 two
-```
+~~~
 
 ### forループ
 
 配列を使った `for` ループを行うことができます。
 
-```
+~~~
 {% for item in array %}
     {{ item }}
 {% endfor %}
-```
+~~~
 
 ハッシュのイテレートでは item[0] にはキー、item[1] には値が入ります。
 
-```
+~~~
 {% for item in hash %}
     {{ item[0] }}: {{ item[1] }}
 {% endfor %}
-```
+~~~
 
 ループの中では次のヘルパー変数を使用することができます。
 
-```
+~~~
 forloop.length      # => ループの長さ
 forloop.index       # => 現在のインデックス
 forloop.index0      # => 現在のインデックス（0始まり）
@@ -297,65 +297,65 @@ forloop.rindex      # => 残り項目数
 forloop.rindex0     # => 残り項目数（0始まり）
 forloop.first       # => 最初のイテレーション？
 forloop.last        # => 最後のイテレーション？
-```
+~~~
 
 指定できるいくつかの属性があります。
 
 - **limit:int** 項目の最大数  
 - **offset:int** 開始インデックス位置
 
-```
+~~~
 # array = [1,2,3,4,5,6]
 {% for item in array limit:2 offset:2 %}
     {{ item }}
 {% endfor %}
 # 結果) 3,4
-```
+~~~
 
 ループを反転させる。
 
-```
+~~~
 {% for item in collection reversed %}
     {{item}}
 {% endfor %}
-```
+~~~
 
 既存のコレクションの代わりに、数値範囲の定義でループすることもできます。範囲はリテラルまたは変数のどちらでも定義することができます。
 
-```
+~~~
 # if item.quantity is 4...
 {% for i in (1..item.quantity) %}
     {{ i }}
 {% endfor %}
 # 結果) 1,2,3,4
-```
+~~~
 
 ループでは項目がなかった時に表示するテキストブロック`else`の指定ができます。
 
-```
+~~~
 # items => []
 {% for item in items %}
     {{ item.title }}
 {% else %}
     There are no items!
 {% endfor %}
-```
+~~~
 
 ### 変数の割り当て
 
 出力マークアップや他のタグで使用するために、変数にデータを保存することができます。変数を作るための最も簡単な方法は`assign`タグです。とても簡単な文法です。
 
-```
+~~~
 {% assign name = 'freestyle' %}
 
 {% for t in collections.tags %}{% if t == name %}
     <p>Freestyle!</p>
 {% endif %}{% endfor %}
-```
+~~~
 
 他の方法としては、`true` / `false`を変数に割り当てることです。
 
-```
+~~~
 {% assign freestyle = false %}
 
 {% for t in collections.tags %}{% if t == 'freestyle' %}
@@ -365,11 +365,11 @@ forloop.last        # => 最後のイテレーション？
 {% if freestyle %}
     <p>Freestyle!</p>
 {% endif %}
-```
+~~~
 
 多くの文字列を結合して変数に取り込みたい場合は、`capture`タグを使用することができます。このタグは、その中でレンダリングされることなら何でも「キャプチャ」して、画面に表示する代わりに指定の変数に代入します。
 
-```
+~~~
 {% capture attribute_name %}{{ item.title | handleize }}-{{ i }}-color{% endcapture %}
 
 <label for="{{ attribute_name }}">Color:</label>
@@ -378,6 +378,6 @@ forloop.last        # => 最後のイテレーション？
 <option value="green">Green</option>
 <option value="blue">Blue</option>
 </select>
-```
+~~~
 
 {% endraw %}
