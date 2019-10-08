@@ -238,7 +238,11 @@ Permalink ID（カテゴリページURLの固有文字列）。またはカテ�
 
 ### articles
 
-このカテゴリ内の記事ArticleオブジェクトのRelationを、記事公開日時の降順で取得。
+任意のカテゴリ内における記事ArticleオブジェクトのRelationを記事公開日時の降順で取得。
+
+### private_articles
+
+任意のカテゴリ内における非公開記事ArticleオブジェクトのRelationを記事作成日時の降順で取得。
 
 ### url
 
@@ -438,6 +442,10 @@ UserオブジェクトのRelationを、作成記事の1ヶ月以内のページ�
 
 記事ArticleオブジェクトのRelationを、記事公開日時の降順で取得。
 
+### private_articles
+
+非公開記事ArticleオブジェクトのRelationを記事作成日時の降順で取得。
+
 ### tags
 
 登録されているタグTagオブジェクトのRelation。
@@ -537,6 +545,10 @@ UserオブジェクトのRelationを、作成記事の1週間以内のページ�
 ### parent
 
 親タグ。1階層上のTagオブジェクト。
+
+### private_articles
+
+任意のタグ内における非公開記事ArticleオブジェクトのRelationを記事作成日時の降順で取得。任意のタグに紐づいた公開記事が1つ以上あることで、オブジェクトを取得可能。
 
 ### url
 
@@ -679,6 +691,10 @@ is_mobileとis_tabletの両方がfalseの時にtrueを返す。
 ### path
 
 ユーザーページのURLパス。
+
+### private_articles
+
+ライターに紐づく非公開記事のRelationを記事作成日時の降順で取得。
 
 ### remove_follower_path
 
