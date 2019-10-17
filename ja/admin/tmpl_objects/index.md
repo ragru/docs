@@ -164,6 +164,10 @@ Permalink ID（記事ページURLの固有文字列）。
 
 祖先カテゴリ。上位階層のすべてのCategoryオブジェクトの配列。
 
+### articles
+
+任意のカテゴリ内における記事ArticleオブジェクトのRelationを記事公開日時の降順で取得。
+
 ### children
 
 サブカテゴリ。1階層下のCategoryオブジェクトの配列。
@@ -171,6 +175,10 @@ Permalink ID（記事ページURLの固有文字列）。
 ### comments
 
 カテゴリに属する記事へ投稿された公開済みのCommentオブジェクトのRelation。
+
+### daily_popular_articles
+
+記事ArticleオブジェクトのRelationを24時間以内のページビューの多い順に取得。
 
 ### descendants
 
@@ -208,6 +216,10 @@ Permalink ID（記事ページURLの固有文字列）。
 
 カテゴリ画像のURL（75x75px正方形）。
 
+### monthly_popular_articles
+
+記事ArticleオブジェクトのRelationを1ヶ月以内のページビューの多い順に取得。
+
 ### name
 
 名称
@@ -236,10 +248,6 @@ Permalink ID（カテゴリページURLの固有文字列）。またはカテ�
 
 このカテゴリでよく使われているタグTagオブジェクトの配列。
 
-### articles
-
-任意のカテゴリ内における記事ArticleオブジェクトのRelationを記事公開日時の降順で取得。
-
 ### private_articles
 
 任意のカテゴリ内における非公開記事ArticleオブジェクトのRelationを記事作成日時の降順で取得。
@@ -248,17 +256,9 @@ Permalink ID（カテゴリページURLの固有文字列）。またはカテ�
 
 カテゴリページのフルURL。
 
-### daily_popular_articles
-
-記事ArticleオブジェクトのRelationを24時間以内のページビューの多い順に取得。
-
 ### weekly_popular_articles
 
 記事ArticleオブジェクトのRelationを1週間以内のページビューの多い順に取得。
-
-### monthly_popular_articles
-
-記事ArticleオブジェクトのRelationを1ヶ月以内のページビューの多い順に取得。
 
 ## Controller（コントローラ）
 
@@ -268,10 +268,6 @@ Permalink ID（カテゴリページURLの固有文字列）。またはカテ�
 
 パンくずリスト要素の配列を取得します。
 
-### signed_in
-
-ログイン中であればtrueを返す。
-
 ### render_breadcrumbs
 
 パンくずリスト描画HTMLを取得。
@@ -280,17 +276,22 @@ Permalink ID（カテゴリページURLの固有文字列）。またはカテ�
 
 HTTPステータスコードを返す。
 
+### signed_in
+
+ログイン中であればtrueを返す。
+
+
 ## Comment（コメント）
 
 記事へのコメントをあらわすオブジェクトです。
 
-### created_at
-
-コメントの投稿日時。
-
 ### body
 
 コメント本文。
+
+### created_at
+
+コメントの投稿日時。
 
 ### sender
 
@@ -337,6 +338,10 @@ HTTPステータスコードを返す。
 ### all_categories
 
 子を含むすべてのCategoryオブジェクトのRelation。
+
+### articles
+
+記事ArticleオブジェクトのRelationを、記事公開日時の降順で取得。
 
 ### attribute_fields
 
@@ -437,10 +442,6 @@ UserオブジェクトのRelationを、作成記事の1ヶ月以内のページ�
 ### popular_tags
 
 3ヶ月以内に投稿された記事に付けられた記事につけられたタグTagオブジェクトのRelationを、記事の多い順で取得。
-
-### articles
-
-記事ArticleオブジェクトのRelationを、記事公開日時の降順で取得。
 
 ### private_articles
 
@@ -554,13 +555,13 @@ UserオブジェクトのRelationを、作成記事の1週間以内のページ�
 
 カテゴリページのURL。
 
-### related_tags
-
-関連するタグの配列。（対象のタグが付けられた記事でよく使われる他のタグ）
-
 ### recent_articles
 
 タグに紐づく、記事のRelation。
+
+### related_tags
+
+関連するタグの配列。（対象のタグが付けられた記事でよく使われる他のタグ）
 
 ### weekly_popular_articles
 
@@ -571,6 +572,10 @@ UserオブジェクトのRelationを、作成記事の1週間以内のページ�
 HTTPリクエストをあらわすオブジェクトです。
 
 すべてのテンプレートおよびページから`request`で参照できます。
+
+### current_page
+
+現在のページ番号を取得。
 
 ### fullpath
 
@@ -596,13 +601,13 @@ is_mobileとis_tabletの両方がfalseの時にtrueを返す。
 
 リクエストパス
 
-### current_page
-
-現在のページ番号を取得。
-
 ## system（システム）
 
 システムをあらわすオブジェクトです。
+
+### domain
+
+ドメイン名（ホスト名）
 
 ### root_path
 
@@ -611,10 +616,6 @@ is_mobileとis_tabletの両方がfalseの時にtrueを返す。
 ### url
 
 システムのトップページURL
-
-### domain
-
-ドメイン名（ホスト名）
 
 ## User（ユーザー）
 
@@ -632,6 +633,10 @@ is_mobileとis_tabletの両方がfalseの時にtrueを返す。
 
 自己紹介。
 
+### curator_kinds
+
+（ライターの場合）ライター種類コードの配列。
+
 ### email
 
 メールアドレス。
@@ -648,13 +653,13 @@ is_mobileとis_tabletの両方がfalseの時にtrueを返す。
 
 フォローしているユーザーのRelation。
 
-### image_small_url
-
-ユーザー画像のURL（48x48px正方形）。
-
 ### image_medium_url
 
 ユーザー画像のURL（256x256px正方形）。
+
+### image_small_url
+
+ユーザー画像のURL（48x48px正方形）。
 
 ### is_admin
 
@@ -671,10 +676,6 @@ is_mobileとis_tabletの両方がfalseの時にtrueを返す。
 ### is_official
 
 公式アカウントならtrue。
-
-### curator_kinds
-
-（ライターの場合）ライター種類コードの配列。
 
 ### name
 
