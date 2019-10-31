@@ -85,3 +85,10 @@
 .site-footer {
   text-align: center;
 }
+
+@media screen and (min-width: 64em) {
+  .gsc-control-cse {
+    max-width: 54rem;
+    margin: 0 auto;
+  }
+}
