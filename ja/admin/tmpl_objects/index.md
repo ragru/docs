@@ -166,7 +166,7 @@ Permalink ID（記事ページURLの固有文字列）。
 
 ### articles
 
-任意のカテゴリ内における記事ArticleオブジェクトのRelationを記事公開日時の降順で取得。
+記事ArticleオブジェクトのRelationを記事公開日時の降順で取得。
 
 ### children
 
@@ -250,7 +250,11 @@ Permalink ID（カテゴリページURLの固有文字列）。またはカテ�
 
 ### private_articles
 
-任意のカテゴリ内における非公開記事ArticleオブジェクトのRelationを記事作成日時の降順で取得。
+非公開記事ArticleオブジェクトのRelationを公開日時の降順で取得。
+
+### reserved_articles
+
+公開日前の記事のArticleオブジェクトのRelationを公開日時の昇順で取得。
 
 ### url
 
@@ -447,6 +451,10 @@ UserオブジェクトのRelationを、作成記事の1ヶ月以内のページ�
 
 非公開記事ArticleオブジェクトのRelationを記事作成日時の降順で取得。
 
+### reserved_articles
+
+公開日前の記事のArticleオブジェクトのRelationを公開日時の昇順で取得。
+
 ### tags
 
 登録されているタグTagオブジェクトのRelation。
@@ -486,6 +494,10 @@ UserオブジェクトのRelationを、作成記事の1週間以内のページ�
 ### ancestors
 
 祖先タグ。上位階層のすべてのTagオブジェクトの配列。
+
+### articles
+
+タグに紐づく、記事のRelation。
 
 ### children
 
@@ -549,15 +561,15 @@ UserオブジェクトのRelationを、作成記事の1週間以内のページ�
 
 ### private_articles
 
-任意のタグ内における非公開記事ArticleオブジェクトのRelationを記事作成日時の降順で取得。任意のタグに紐づいた公開記事が1つ以上あることで、オブジェクトを取得可能。
+非公開記事ArticleオブジェクトのRelationを公開日時の降順で取得。任意のタグに紐づいた公開記事が1つ以上あることで、オブジェクトを取得可能。
+
+### reserved_articles
+
+公開日前の記事のArticleオブジェクトのRelationを公開日時の昇順で取得。
 
 ### url
 
 カテゴリページのURL。
-
-### recent_articles
-
-タグに紐づく、記事のRelation。
 
 ### related_tags
 
@@ -695,7 +707,11 @@ is_mobileとis_tabletの両方がfalseの時にtrueを返す。
 
 ### private_articles
 
-ライターに紐づく非公開記事のRelationを記事作成日時の降順で取得。
+ライターに紐づく非公開記事のRelationを公開日時の降順で取得。
+
+### reserved_articles
+
+記事のArticleオブジェクトのRelationを公開日時の昇順で取得。
 
 ### remove_follower_path
 
