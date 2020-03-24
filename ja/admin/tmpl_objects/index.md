@@ -645,10 +645,6 @@ is_mobileとis_tabletの両方がfalseの時にtrueを返す。
 
 自己紹介。
 
-### curator_kinds
-
-（ライターの場合）ライター種類コードの配列。
-
 ### email
 
 メールアドレス。
@@ -720,3 +716,7 @@ is_mobileとis_tabletの両方がfalseの時にtrueを返す。
 ### url
 
 ユーザーページのフルURL。
+
+### user_kinds
+
+ユーザー種別コードの配列。
