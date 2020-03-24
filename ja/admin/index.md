@@ -78,7 +78,7 @@
 - [ページ](design/#pages)
 - [ファイル](design/#files)
 - [ウィジェット](design/#widgets)
-- [ウィジェット](design/#forms)
+- [フォーム](design/#forms)
 
 ---
 - [テンプレート言語Liquid](liquid/)
