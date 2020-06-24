@@ -125,3 +125,35 @@ Sass（拡張子.scss/.sass）、CoffeScript（拡張子.coffee）、ES6(2015)+�
 フォームはLiquidタグ `{% form 'Name' %}` で読み込むことができます。
 
 {% endraw %}
+
+## コレクション {#collections}
+
+> サイト管理 > コレクションアイテム
+
+記事や画像、広告用HTMLなどのコンテンツをリストとして管理することができます。
+
+作成したコレクションはテンプレートや固定ページに配置したり、記事内に配置することができます。
+
+コレクションはLiquidタグ `{% collection 'コレクション Name' %}` で読み込むことができます。
+コレクションのデータにて動的にHTMLが出力されます。デザイン調整をする場合は、cssにて対応が必要になります。
+
+また、HTML構造を変更したい場合は、以下のようにしてテンプレートで自由にHTMLの調整が可能です。
+
+```
+{% assign collection = site.collections | find_by: 'name', 'コレクション Name' %}
+{% for item for collection.items %}
+  {% if item.type == 'CollectionItemArticle' %}
+    <!-- 記事コレクションアイテムの表示 -->
+    {{ item.label }}
+    ...
+  {% elsif item.type == 'CollectionItemImage' %}
+    <!-- 画像コレクションアイテムの表示 -->
+    <img src="{{ item.image_url }}">
+    ...
+  {% elsif item.type == 'CollectionItemHtml' %}
+    <!-- HTMLコレクションアイテムの表示 -->
+    {{ item.caption }}
+    ...
+  {% endif %}
+{% endfor %}
+```
