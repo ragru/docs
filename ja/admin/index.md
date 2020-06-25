@@ -79,6 +79,7 @@
 - [ファイル](design/#files)
 - [ウィジェット](design/#widgets)
 - [フォーム](design/#forms)
+- [コレクション](design/#collections)
 
 ---
 - [テンプレート言語Liquid](liquid/)

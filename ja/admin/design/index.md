@@ -124,8 +124,6 @@ Sass（拡張子.scss/.sass）、CoffeScript（拡張子.coffee）、ES6(2015)+�
 
 フォームはLiquidタグ `{% form 'Name' %}` で読み込むことができます。
 
-{% endraw %}
-
 ## コレクション {#collections}
 
 > サイト管理 > コレクションアイテム
@@ -134,7 +132,7 @@ Sass（拡張子.scss/.sass）、CoffeScript（拡張子.coffee）、ES6(2015)+�
 
 作成したコレクションはテンプレートや固定ページに配置したり、記事内に配置することができます。
 
-コレクションはLiquidタグ `{% collection 'コレクション Name' %}` で読み込むことができます。
+コレクションはLiquidタグ `{% collection 'Name' %}` で読み込むことができます。
 
 コレクションのデータにて動的にHTMLが出力されます。デザイン調整をする場合は、cssにて対応が必要になります。
 
@@ -158,3 +156,5 @@ Sass（拡張子.scss/.sass）、CoffeScript（拡張子.coffee）、ES6(2015)+�
   {% endif %}
 {% endfor %}
 ```
+
+{% endraw %}

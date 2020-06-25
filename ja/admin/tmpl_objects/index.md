@@ -264,6 +264,22 @@ Permalink ID（カテゴリページURLの固有文字列）。またはカテ�
 
 記事ArticleオブジェクトのRelationを1週間以内のページビューの多い順に取得。
 
+## Collection（コレクション）
+
+コレクションをあらわすオブジェクトです。
+
+### name
+
+コレクションの一意キーとなる名前
+
+### label
+
+コレクションの名称
+
+### items
+
+コレクション子要素. CollectionItemオブジェクトのRelation。
+
 ## CollectionItem（コレクションアイテム）
 
 コレクションの子要素をあらわすオブジェクトです。
@@ -800,19 +816,3 @@ is_mobileとis_tabletの両方がfalseの時にtrueを返す。
 ### user_kinds
 
 ユーザー種別コードの配列。
-
-## Collection（コレクション）
-
-コレクションをあらわすオブジェクトです。
-
-### name
-
-コレクションの一意キーとなる名前
-
-### label
-
-コレクションの名称
-
-### items
-
-コレクション子要素. CollectionItemオブジェクトのRelation。
