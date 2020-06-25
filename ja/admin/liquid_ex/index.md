@@ -45,6 +45,15 @@
 {% endcache %}
 ~~~
 
+### collection
+
+[コレクション](../design/#collections)を読み込みます。コレクションのデータにて動的にHTMLが出力されます。
+デザイン調整をする場合は、cssにて対応が必要になります。
+
+~~~
+{% collection "collection_name" %}
+~~~
+
 ### file
 
 [ファイル](../design/#files)のURLを出力します。
@@ -281,15 +290,6 @@ Relationオブジェクトを明示的に配列に変換します。
 
 ~~~
 {% assign articles = site.articles | search: request.params["q"] %}
-~~~
-
-### collection
-
-[コレクション](../design/#collections)を読み込みます。コレクションのデータにて動的にHTMLが出力されます。
-デザイン調整をする場合は、cssにて対応が必要になります。
-
-~~~
-{% collection "collection_name" %}
 ~~~
 
 {% endraw %}
