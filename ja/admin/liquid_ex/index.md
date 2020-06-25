@@ -11,10 +11,10 @@
 配列またはRelationオブジェクトのイテレートで、ページネートを追加します。
 
 ~~~
-{% paginate site.articles per 10 %}  
-    {% for article in paginate.collection %}  
-    <li>{{ article.title }}</li>  
-    {% endfor %}  
+{% paginate site.articles per 10 %}
+    {% for article in paginate.collection %}
+    <li>{{ article.title }}</li>
+    {% endfor %}
 {% endpaginate %}
 ~~~
 
@@ -27,22 +27,31 @@
 例）キャッシュキーに固定の文字列を指定することで、常にキャッシュされた結果を出力します。この例では600秒（10分）でキャッシュはリセットされ、最新の結果が出力されます。
 
 ~~~
-{% cache "cache-key", max_ttl: 600 %}  
-    〜  
+{% cache "cache-key", max_ttl: 600 %}
+    〜
 {% endcache %}
 ~~~
 
 例）人気のタグ一覧をキャッシュして出力します。キャッシュキーとしてsiteオブジェクトを指定しているので、記事が追加、更新されるのなどサイト情報が更新されるとキャッシュは自動的にリセットされ最新情報が出力されます。
 
 ~~~
-{% cache site, "site-popular-tags" %}  
-    {% assign tags = site.popular_tags | limit: 20 %}  
-    {% for t in tags %}  
-    <a href="{{ t.path }}" class="btn btn-default btn-sm">  
-    <span class="fa fa-tag fa-lg text-muted"></span>  
-    {{ t.name }} ({{ t.num_articles | format_number }})</a>  
-    {% endfor %}  
+{% cache site, "site-popular-tags" %}
+    {% assign tags = site.popular_tags | limit: 20 %}
+    {% for t in tags %}
+    <a href="{{ t.path }}" class="btn btn-default btn-sm">
+    <span class="fa fa-tag fa-lg text-muted"></span>
+    {{ t.name }} ({{ t.num_articles | format_number }})</a>
+    {% endfor %}
 {% endcache %}
+~~~
+
+### collection
+
+[コレクション](../design/#collections)を読み込みます。コレクションのデータにて動的にHTMLが出力されます。
+デザイン調整をする場合は、cssにて対応が必要になります。
+
+~~~
+{% collection "collection_name" %}
 ~~~
 
 ### file
@@ -58,7 +67,7 @@
 [フォーム](../design/#forms)を読み込みます。
 
 ~~~
-{% form "vote1" %}  
+{% form "vote1" %}
 ~~~
 
 ### widget
@@ -66,7 +75,7 @@
 [ウィジェット](../design/#widgets)を読み込みます。2つ目以降の引数でローカル変数を引き渡すことができます。
 
 ~~~
-{% widget "google_analytics" %}  
+{% widget "google_analytics" %}
 {% widget "article_ad1", permalink: article.url %}
 ~~~
 
@@ -75,7 +84,7 @@
 [パーシャルテンプレート](../design/#templates)を読み込みます。2つ目以降の引数でローカル変数を引き渡すことができます。
 
 ~~~
-{% assign ranking_articles = site.weekly_popular_articles | limit: 5 %}  
+{% assign ranking_articles = site.weekly_popular_articles | limit: 5 %}
 {% render "ranking", articles: ranking_articles %}
 ~~~
 
@@ -172,8 +181,8 @@ Relationオブジェクトの検索条件を結合します。
 例）カテゴリ「hoge」または「fuga」の記事を取得：
 
 ~~~
-{% assign hoge_articles = site.articles | where: "categories.name = 'hoge'" %}  
-{% assign fuga_articles = site.articles | where: "categories.name = 'fuga'" %}  
+{% assign hoge_articles = site.articles | where: "categories.name = 'hoge'" %}
+{% assign fuga_articles = site.articles | where: "categories.name = 'fuga'" %}
 {% assign articles = hoge_articles | or: fuga_articles %}
 ~~~
 
@@ -220,7 +229,7 @@ Relationオブジェクトの並び順を変更します。
 例）記事詳細ページでカテゴリ内公開日時降順での1つ古い記事へのリンク：
 
 ~~~
-{% assign next_article = article.category.articles | next_to: article %}  
+{% assign next_article = article.category.articles | next_to: article %}
 <a href="{{ next_article.path }}">前の記事</a>
 ~~~
 
@@ -231,7 +240,7 @@ Relationオブジェクトの並び順を変更します。
 例）記事詳細ページでカテゴリ内公開日時降順で1つ新しい記事へのリンク：
 
 ~~~
-{% assign previous_article = article.category.articles | prev_to: article %}  
+{% assign previous_article = article.category.articles | prev_to: article %}
 <a href="{{ previous_article.path }}">次の記事</a>
 ~~~
 

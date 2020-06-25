@@ -264,6 +264,98 @@ Permalink ID（カテゴリページURLの固有文字列）。またはカテ�
 
 記事ArticleオブジェクトのRelationを1週間以内のページビューの多い順に取得。
 
+## Collection（コレクション）
+
+コレクションをあらわすオブジェクトです。
+
+### name
+
+コレクションの一意キーとなる名前
+
+### label
+
+コレクションの名称
+
+### items
+
+コレクション子要素. CollectionItemオブジェクトのRelation。
+
+## CollectionItem（コレクションアイテム）
+
+コレクションの子要素をあらわすオブジェクトです。
+
+### article
+
+コレクションアイテム（記事）が指定されている場合は、Articleオブジェクト。
+
+### caption
+
+コレクションアイテムのキャプション、HTML本文など
+
+### image_small_path
+
+コレクションアイテム画像のパス（320px）
+
+### image_small_url
+
+コレクションアイテム画像のURL（320px）
+
+### image_large_path
+
+コレクションアイテム画像のパス（1280px）
+
+### image_large_url
+
+コレクションアイテム画像のURL（1280px）
+
+### image_medium_path
+
+コレクションアイテム画像のパス（640px）
+
+### image_medium_url
+
+コレクションアイテム画像のパURL（640px）
+
+### image_square_path
+
+コレクションアイテム画像のパス（150x150px正方形）
+
+### image_square_url
+
+コレクションアイテム画像のパURL（150x150px正方形）
+
+### image_thumbnail_path
+
+コレクションアイテム画像のパス（75x75px正方形）
+
+### image_thumbnail_url
+
+コレクションアイテム画像のパスURL（75x75px正方形）
+
+### image_path
+
+コレクションアイテム画像のパス（オリジナルサイズ）
+
+### image_url
+
+コレクションアイテム画像のURL（オリジナルサイズ）
+
+### label
+
+コレクションアイテムの名称、タイトルなど
+
+### path
+
+コレクションアイテムのパス
+
+### type
+
+コレクションアイテムの種類（CollectionItemArticle, CollectionItemImageなど）
+
+### url
+
+コレクションアイテムのURL
+
 ## Controller（コントローラ）
 
 すべてのテンプレートおよびページから`controller`で参照できます。
@@ -362,6 +454,10 @@ HTTPステータスコードを返す。
 ### curators
 
 ライターであるUserオブジェクトのRelation。
+
+### collections
+
+コレクションであるCollectionオブジェクトのRelation。
 
 ### daily_popular_articles
 
