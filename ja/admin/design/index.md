@@ -138,7 +138,7 @@ Sass（拡張子.scss/.sass）、CoffeScript（拡張子.coffee）、ES6(2015)+�
 
 また、HTML構造を変更したい場合は、以下のようにしてテンプレートで自由にHTMLの調整が可能です。
 
-```
+~~~
 {% assign collection = site.collections | find_by: 'name', 'コレクション Name' %}
 {% for item for collection.items %}
   {% if item.type == 'CollectionItemArticle' %}
@@ -155,6 +155,6 @@ Sass（拡張子.scss/.sass）、CoffeScript（拡張子.coffee）、ES6(2015)+�
     ...
   {% endif %}
 {% endfor %}
-```
+~~~
 
 {% endraw %}
