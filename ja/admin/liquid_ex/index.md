@@ -292,4 +292,86 @@ Relationオブジェクトを明示的に配列に変換します。
 {% assign articles = site.articles | search: request.params["q"] %}
 ~~~
 
+例）指定カテゴリの記事一覧:
+
+~~~
+{% assign articles  = site.articles | search: 'category:"カテゴリ名または、カテゴリキー"' %}
+~~~
+
+例）指定カテゴリかつ、指定タグの記事一覧:
+
+~~~
+{% assign articles  = site.articles | search: 'category:"カテゴリ名または、カテゴリキー" tag:"タグ名"' %}
+~~~
+
+※キーワードを空白で区切るとAND検索となります。
+
+例）複数カテゴリを除外した記事一覧:
+
+~~~
+{% assign articles  = site.articles | search: '-category:"カテゴリ名または、カテゴリキー" -category:"カテゴリ名または、カテゴリキー"' %}
+~~~
+
+※以外の検索は、-をつける必要があります。
+
+例）指定カテゴリーかつ、指定拡張項目の記事一覧:
+
+~~~
+{% assign articles  = site.articles | search: 'category:"カテゴリ名または、カテゴリキー" 拡張項目名:検索ワード %}
+~~~
+
+例）指定拡張項目（テキスト）かつ、指定拡張項目（日付）の記事一覧:
+
+~~~
+{% assign articles  = site.articles | search: '拡張項目名（テキスト）:検索ワード 拡張項目名（日付）:"2021/03/15" %}
+~~~
+
+検索クエリの詳細については[こちら](../search_query/)をご確認ください。
+
 {% endraw %}
+
+### headings_per_page
+
+表示する目次の情報を取得します。
+
+例）目次表示
+
+~~~
+{% raw %}{% assign headings = article.items | headings_per_page %}
+{% if headings.size > 0 %}
+  <div class="toc">
+    <h3>目次</h3>
+    <ul>
+      {% for heading in headings %}
+        <li class="lv{{ heading['level'] }}">
+          <a href="{{ heading['path'] }}">{{ heading['title'] }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}{% endraw %}
+~~~
+
+例）1ページあたりの件数を明示的に指定している場合（1ページ 15件）:
+
+~~~
+{% raw %}{% assign headings = article.items | headings_per_page: 15 %}
+{% if headings.size > 0 %}
+  <div class="toc">
+    <h3>目次</h3>
+    <ul>
+      {% for heading in headings %}
+        <li class="lv{{ heading['level'] }}">
+          <a href="{{ heading['path'] }}">{{ heading['title'] }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+
+{% paginate article.items per 15 %}
+  {% for item in paginate.collection %}
+    ...
+  {% endfor %}
+{% endpaginate %}{% endraw %}
+~~~
