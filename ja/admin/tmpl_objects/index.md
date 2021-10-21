@@ -356,6 +356,91 @@ Permalink ID（カテゴリページURLの固有文字列）。またはカテ�
 
 コレクションアイテムのURL
 
+## Widget（ウィジェット）
+
+ウィジェットをあらわすオブジェクトです。
+ウィジェットの編集ページでは`widget`で現在のウィジェットを参照できます。
+
+### name
+
+テーマでのウィジェットの一意キーとなる名前
+
+### status
+
+ウィジェットのステータス（published,draft,unpublished）
+
+### code
+
+ウィジェットの編集で登録したコード。
+
+### article
+
+ウィジェット（記事）が指定されている場合は、Articleオブジェクト。
+
+### image_small_path
+
+ウィジェット画像のパス（320px）
+
+### image_small_url
+
+ウィジェット画像のURL（320px）
+
+### image_large_path
+
+ウィジェット画像のパス（1280px）
+
+### image_large_url
+
+ウィジェット画像のURL（1280px）
+
+### image_medium_path
+
+ウィジェット画像のパス（640px）
+
+### image_medium_url
+
+ウィジェット画像のパURL（640px）
+
+### image_square_path
+
+ウィジェット画像のパス（150x150px正方形）
+
+### image_square_url
+
+ウィジェット画像のパURL（150x150px正方形）
+
+### image_thumbnail_path
+
+ウィジェット画像のパス（75x75px正方形）
+
+### image_thumbnail_url
+
+ウィジェット画像のパスURL（75x75px正方形）
+
+### image_path
+
+ウィジェット画像のパス（オリジナルサイズ）
+
+### image_url
+
+ウィジェット画像のURL（オリジナルサイズ）
+
+### label
+
+ウィジェット（画像）で登録したタイトル。
+
+### url
+
+ウィジェット（画像）で登録したURL。
+
+### caption
+
+ウィジェット（画像）で登録したキャプション。
+
+### type
+
+ウィジェットの種類（WidgetCode,WidgetArticle,WidgetImage）
+
 ## Controller（コントローラ）
 
 すべてのテンプレートおよびページから`controller`で参照できます。
