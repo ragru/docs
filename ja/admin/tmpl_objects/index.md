@@ -365,10 +365,6 @@ Permalink ID（カテゴリページURLの固有文字列）。またはカテ�
 
 テーマでのウィジェットの一意キーとなる名前
 
-### status
-
-ウィジェットのステータス（published,draft,unpublished）
-
 ### code
 
 ウィジェットの編集で登録したコード。
